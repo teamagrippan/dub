@@ -5,7 +5,7 @@ export const stripe = new Stripe(
   {
     apiVersion: "2022-11-15",
     appInfo: {
-      name: "Dub.co",
+      name: "letsfind.my",
       version: "0.1.0",
     },
   },

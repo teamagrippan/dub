@@ -21,7 +21,7 @@ export default async function LinkMiddleware(
     return NextResponse.next();
   }
 
-  if (process.env.NODE_ENV !== "development" && domain === "dub.sh") {
+  if (process.env.NODE_ENV !== "development" && domain === "letsfind.my") {
     if (
       key === "github" &&
       (await isBlacklistedReferrer(req.headers.get("referer")))

@@ -125,7 +125,7 @@ export async function getUserByKey(data: FormData) {
     where: {
       links: {
         some: {
-          domain: "dub.sh",
+          domain: "letsfind.my",
           key,
         },
       },
@@ -134,7 +134,7 @@ export async function getUserByKey(data: FormData) {
       email: true,
       links: {
         where: {
-          domain: "dub.sh",
+          domain: "letsfind.my",
         },
         select: {
           key: true,

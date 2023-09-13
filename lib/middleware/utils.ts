@@ -4,12 +4,12 @@ import { redis } from "#/lib/upstash";
 export const parse = (req: NextRequest) => {
   let domain = req.headers.get("host") as string;
   domain = domain.replace("www.", ""); // remove www. from domain
-  if (domain === "dub.localhost:8888" || domain === "staging.dub.sh") {
+  if (domain === "dub.localhost:8888" || domain === "staging.letsfind.my") {
     // for local development & staging environments
-    domain = "dub.sh";
+    domain = "letsfind.my";
   }
 
-  // path is the path of the URL (e.g. dub.co/stats/github -> /stats/github)
+  // path is the path of the URL (e.g. letsfind.my/stats/github -> /stats/github)
   const path = req.nextUrl.pathname;
 
   // fullPath is the full URL path (along with search params)
@@ -19,14 +19,14 @@ export const parse = (req: NextRequest) => {
   }`;
 
   // Here, we are using decodeURIComponent to handle foreign languages like Hebrew
-  const key = decodeURIComponent(path.split("/")[1]); // key is the first part of the path (e.g. dub.co/stats/github -> stats)
-  const fullKey = decodeURIComponent(path.slice(1)); // fullKey is the full path without the first slash (to account for multi-level subpaths, e.g. dub.sh/github/repo -> github/repo)
+  const key = decodeURIComponent(path.split("/")[1]); // key is the first part of the path (e.g. letsfind.my/stats/github -> stats)
+  const fullKey = decodeURIComponent(path.slice(1)); // fullKey is the full path without the first slash (to account for multi-level subpaths, e.g. letsfind.my/github/repo -> github/repo)
 
   return { domain, path, fullPath, key, fullKey };
 };
 
 export const getFinalUrl = (target: string, { req }: { req: NextRequest }) => {
-  // query is the query string (e.g. dub.sh/github/repo?utm_source=twitter -> ?utm_source=twitter)
+  // query is the query string (e.g. letsfind.my/github/repo?utm_source=twitter -> ?utm_source=twitter)
   const searchParams = req.nextUrl.searchParams;
 
   // get the query params of the target url

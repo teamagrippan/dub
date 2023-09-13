@@ -31,6 +31,12 @@ const nextConfig = {
       "media.cleanshot.cloud", // only for staging purposes
     ],
   },
+  webpack: (config, { }) => {
+    // https://github.com/auth0/node-auth0/blob/master/FAQ.md?plain=1#L9
+    config.resolve.alias['aws-crt'] = false;
+    config.resolve.alias['typeorm'] = false;
+    return config;
+  },
   async headers() {
     return [
       {
@@ -59,10 +65,10 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "app.dub.sh",
+            value: "app.letsfind.my",
           },
         ],
-        destination: "https://app.dub.co",
+        destination: "https://app.letsfind.my",
         permanent: true,
         statusCode: 301,
       },
@@ -71,10 +77,10 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "app.dub.sh",
+            value: "app.letsfind.my",
           },
         ],
-        destination: "https://app.dub.co/:path*",
+        destination: "https://app.letsfind.my/:path*",
         permanent: true,
         statusCode: 301,
       },
@@ -83,10 +89,10 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "api.dub.sh",
+            value: "api.letsfind.my",
           },
         ],
-        destination: "https://api.dub.co",
+        destination: "https://api.letsfind.my",
         permanent: true,
         statusCode: 301,
       },
@@ -95,10 +101,10 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "api.dub.sh",
+            value: "api.letsfind.my",
           },
         ],
-        destination: "https://api.dub.co/:path*",
+        destination: "https://api.letsfind.my/:path*",
         permanent: true,
         statusCode: 301,
       },
@@ -107,10 +113,10 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "dub.sh",
+            value: "letsfind.my",
           },
         ],
-        destination: "https://dub.co",
+        destination: "https://letsfind.my",
         permanent: true,
         statusCode: 301,
       },
@@ -121,10 +127,10 @@ const nextConfig = {
             has: [
               {
                 type: "host",
-                value: "dub.sh",
+                value: "letsfind.my",
               },
             ],
-            destination: `https://dub.co/${segment}`,
+            destination: `https://letsfind.my/${segment}`,
             permanent: true,
             statusCode: 301,
           },
@@ -133,10 +139,10 @@ const nextConfig = {
             has: [
               {
                 type: "host",
-                value: "dub.sh",
+                value: "letsfind.my",
               },
             ],
-            destination: `https://dub.co/${segment}/:path*`,
+            destination: `https://letsfind.my/${segment}/:path*`,
             permanent: true,
             statusCode: 301,
           }
@@ -147,10 +153,10 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "dub.sh",
+            value: "letsfind.my",
           },
         ],
-        destination: "https://dub.co/tools/metatags",
+        destination: "https://letsfind.my/tools/metatags",
         permanent: true,
         statusCode: 301,
       },
@@ -159,7 +165,7 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "dub.co",
+            value: "letsfind.my",
           },
         ],
         destination: "/tools/metatags",
@@ -171,10 +177,10 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "staging.dub.sh",
+            value: "staging.letsfind.my",
           },
         ],
-        destination: "https://dub.co",
+        destination: "https://letsfind.my",
         permanent: true,
         statusCode: 301,
       },
@@ -183,10 +189,10 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "preview.dub.sh",
+            value: "preview.letsfind.my",
           },
         ],
-        destination: "https://preview.dub.co",
+        destination: "https://preview.letsfind.my",
         permanent: true,
         statusCode: 301,
       },
@@ -195,10 +201,10 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "admin.dub.sh",
+            value: "admin.letsfind.my",
           },
         ],
-        destination: "https://admin.dub.co",
+        destination: "https://admin.letsfind.my",
         permanent: true,
         statusCode: 301,
       },

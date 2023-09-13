@@ -11,7 +11,7 @@ export default withLinksAuth(async (req, res, _session, _project, domain) => {
     const link = await prisma.link.findUnique({
       where: {
         domain_key: {
-          domain: domain || "dub.sh",
+          domain: domain || "letsfind.my",
           key,
         },
       },
@@ -28,7 +28,7 @@ export default withLinksAuth(async (req, res, _session, _project, domain) => {
     const response = await prisma.link.update({
       where: {
         domain_key: {
-          domain: domain || "dub.sh",
+          domain: domain || "letsfind.my",
           key,
         },
       },

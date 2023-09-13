@@ -34,10 +34,10 @@ export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
   const { domain, path, key } = parse(req);
 
   if (isHomeHostname(domain)) {
-    return NextResponse.rewrite(new URL(`/dub.co${path}`, req.url));
+    return NextResponse.rewrite(new URL(`/letsfind.my${path}`, req.url));
   }
 
-  // for public stats pages (e.g. dub.co/stats/github, vercel.fyi/stats/roomGPT)
+  // for public stats pages (e.g. letsfind.my/stats/github, vercel.fyi/stats/roomGPT)
   if (key === "stats") {
     return NextResponse.rewrite(new URL(`/${domain}${path}`, req.url));
   }
@@ -57,12 +57,12 @@ export default async function middleware(req: NextRequest, ev: NextFetchEvent) {
     return AdminMiddleware(req);
   }
 
-  // for root pages (e.g. dub.co, vercel.fyi, etc.)
+  // for root pages (e.g. letsfind.my, vercel.fyi, etc.)
   if (key.length === 0) {
     return RootMiddleware(req, ev);
   }
 
-  if (domain === "dub.sh" && DEFAULT_REDIRECTS[key]) {
+  if (domain === "letsfind.my" && DEFAULT_REDIRECTS[key]) {
     return NextResponse.redirect(DEFAULT_REDIRECTS[key]);
   }
 

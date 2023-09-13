@@ -19,7 +19,7 @@ export default withLinksAuth(
       }
 
       const response = await getStats({
-        domain: domain || "dub.sh",
+        domain: domain || "letsfind.my",
         key,
         endpoint,
         interval,

@@ -59,11 +59,11 @@ export default withLinksAuth(
           {
             ...req.body,
             key,
-            domain: req.body.domain || "dub.sh",
+            domain: req.body.domain || "letsfind.my",
             userId: session.user.id,
           },
           {
-            oldDomain: oldDomain || "dub.sh",
+            oldDomain: oldDomain || "letsfind.my",
             oldKey,
           },
         ),
@@ -85,7 +85,7 @@ export default withLinksAuth(
         await log({
           message: `*${
             session.user.email
-          }* edited a link (dub.sh/${key}) to the ${url} ${
+          }* edited a link (letsfind.my/${key}) to the ${url} ${
             invalidFavicon
               ? " but it has an invalid favicon :thinking_face:"
               : ""
@@ -98,7 +98,7 @@ export default withLinksAuth(
 
       // DELETE /api/links/:key – delete a link
     } else if (req.method === "DELETE") {
-      const response = await deleteLink(domain || "dub.sh", oldKey);
+      const response = await deleteLink(domain || "letsfind.my", oldKey);
       return res.status(200).json(response);
     } else {
       res.setHeader("Allow", ["GET", "PUT", "DELETE"]);

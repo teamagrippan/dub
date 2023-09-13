@@ -19,7 +19,7 @@ export function cn(...inputs: ClassValue[]) {
 export function constructMetadata({
   title = "Dub - Link Management for Modern Marketing Teams",
   description = "Dub is an open-source link management tool for modern marketing teams to create, share, and track short links.",
-  image = "https://dub.co/_static/thumbnail.png",
+  image = "https://letsfind.my/_static/thumbnail.png",
   icons = "/favicon.ico",
   noIndex = false,
 }: {
@@ -137,7 +137,7 @@ export const chunk = <T>(array: T[], chunk_size: number): T[][] => {
 
 export function linkConstructor({
   key,
-  domain = "dub.sh",
+  domain = "letsfind.my",
   localhost,
   pretty,
   noDomain,
@@ -277,7 +277,7 @@ export const getApexDomain = (url: string) => {
     // otherwise, it's a subdomain (e.g. dub.vercel.app), so we return the last 2 parts
     return parts.slice(-2).join(".");
   }
-  // if it's a normal domain (e.g. dub.co), we return the domain
+  // if it's a normal domain (e.g. letsfind.my), we return the domain
   return domain;
 };
 

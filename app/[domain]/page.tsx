@@ -7,7 +7,7 @@ export async function generateMetadata({
 }: {
   params: { domain: string };
 }) {
-  const title = `${params.domain.toUpperCase()} - A Dub.co Custom Domain`;
+  const title = `${params.domain.toUpperCase()} - A letsfind.my Custom Domain`;
   const description = `${params.domain.toUpperCase()} is a custom domain on Dub - an open-source link management tool for modern marketing teams to create, share, and track short links.`;
 
   return constructMetadata({
@@ -24,7 +24,7 @@ export async function generateStaticParams() {
             verified: true,
             target: null,
             NOT: {
-              slug: "dub.sh",
+              slug: "letsfind.my",
             },
           },
           select: {

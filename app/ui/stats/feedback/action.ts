@@ -11,8 +11,8 @@ export async function submitFeedback(data: FormData) {
       Authorization: "Bearer " + process.env.RESEND_API_KEY,
     },
     body: JSON.stringify({
-      from: "feedback@dub.co",
-      to: "steven@dub.co",
+      from: "feedback@letsfind.my",
+      to: "steven@letsfind.my",
       reply_to: email,
       ...(email && { reply_to: email }),
       subject: "🎉 New Feedback Received!",

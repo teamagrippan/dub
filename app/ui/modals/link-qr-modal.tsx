@@ -226,7 +226,7 @@ function AdvancedSettings({ qrData, setFgColor, showLogo, setShowLogo }) {
                   thumbDimensions="w-5 h-5"
                   thumbTranslate="translate-x-6"
                 />
-                <p className="text-sm text-gray-600">Show dub.co Logo</p>
+                <p className="text-sm text-gray-600">Show letsfind.my Logo</p>
               </div>
             ) : (
               <Tooltip
@@ -247,7 +247,7 @@ function AdvancedSettings({ qrData, setFgColor, showLogo, setShowLogo }) {
                     thumbTranslate="translate-x-6"
                     disabled={true}
                   />
-                  <p className="text-sm text-gray-600">Show dub.co Logo</p>
+                  <p className="text-sm text-gray-600">Show letsfind.my Logo</p>
                 </div>
               </Tooltip>
             )}
@@ -310,7 +310,7 @@ function QrDropdown({ download, qrData, showLogo, logo }) {
                     ...(showLogo && {
                       imageSettings: {
                         ...qrData.imageSettings,
-                        src: logo || "https://dub.co/_static/logo.svg",
+                        src: logo || "https://letsfind.my/_static/logo.svg",
                       },
                     }),
                   }),

@@ -21,7 +21,7 @@ export default async function handler(req: NextRequest) {
     satoshiBold,
   ]);
 
-  const domain = req.nextUrl.searchParams.get("domain") || "dub.sh";
+  const domain = req.nextUrl.searchParams.get("domain") || "letsfind.my";
   const key = req.nextUrl.searchParams.get("key") || "github";
 
   const data = await getLinkViaEdge(domain, key);
@@ -51,7 +51,7 @@ export default async function handler(req: NextRequest) {
           flexDirection: "column",
           alignItems: "center",
           backgroundColor: "white",
-          backgroundImage: `url(https://dub.co/_static/background.png)`,
+          backgroundImage: `url(https://letsfind.my/_static/background.png)`,
         }}
       >
         <img

@@ -35,7 +35,7 @@ export default function LinkInspector() {
           />
 
           <div className="grid gap-1 bg-white p-3 text-left">
-            <p className="text-sm text-[#536471]">dub.co</p>
+            <p className="text-sm text-[#536471]">letsfind.my</p>
             <h3 className="truncate text-sm font-medium text-[#0f1419]">
               Link Inspector
             </h3>

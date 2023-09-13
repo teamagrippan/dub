@@ -163,7 +163,7 @@ export const authOptions: NextAuthOptions = {
         sameSite: "lax",
         path: "/",
         // When working on localhost, the cookie domain must be omitted entirely (https://stackoverflow.com/a/1188145)
-        domain: VERCEL_DEPLOYMENT ? ".dub.co" : undefined,
+        domain: VERCEL_DEPLOYMENT ? ".letsfind.my" : undefined,
         secure: VERCEL_DEPLOYMENT,
       },
     },
@@ -299,7 +299,7 @@ export const authOptions: NextAuthOptions = {
           new Date(user.createdAt).getTime() > Date.now() - 10000
         ) {
           sendEmail({
-            subject: "Welcome to Dub.co!",
+            subject: "Welcome to letsfind.my!",
             email,
             react: WelcomeEmail({
               email,

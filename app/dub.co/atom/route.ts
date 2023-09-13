@@ -6,19 +6,19 @@ export async function GET() {
     <feed xmlns="http://www.w3.org/2005/Atom">
         <title>Dub News</title>
         <subtitle>Dub's Blog and Changelog</subtitle>
-        <link href="https://dub.co/atom" rel="self"/>
-        <link href="https://dub.co/"/>
+        <link href="https://letsfind.my/atom" rel="self"/>
+        <link href="https://letsfind.my/"/>
         <updated>${new Date().toISOString()}</updated>
-        <id>https://dub.co/</id>${[...allBlogPosts, ...allChangelogPosts]
+        <id>https://letsfind.my/</id>${[...allBlogPosts, ...allChangelogPosts]
           .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
           .map((post) => {
             return `
         <entry>
-            <id>https://dub.co/${
+            <id>https://letsfind.my/${
               post.type === "BlogPost" ? "blog" : "changelog"
             }/${post.slug}</id>
             <title>${post.title}</title>
-            <link href="https://dub.co/${
+            <link href="https://letsfind.my/${
               post.type === "BlogPost" ? "blog" : "changelog"
             }/${post.slug}"/>
             <updated>${post.publishedAt}</updated>

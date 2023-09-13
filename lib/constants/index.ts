@@ -38,11 +38,11 @@ export const PAGINATION_LIMIT = 100;
 /*
   NOTE: We're using home.localhost:8888 for HOME_DOMAIN and localhost:8888 for APP_DOMAIN
   in local development because Google OAuth doesn't allow subdomain localhost (e.g. app.localhost:8888)
-  as the callback URL. 
+  as the callback URL.
 */
 
 export const HOME_HOSTNAMES = new Set([
-  "dub.co",
+  "letsfind.my",
   "home.localhost:8888",
   "localhost",
 ]);
@@ -53,60 +53,60 @@ export const isHomeHostname = (domain: string) => {
 
 export const HOME_DOMAIN =
   process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
-    ? "https://dub.co"
+    ? "https://letsfind.my"
     : process.env.NEXT_PUBLIC_VERCEL_ENV === "preview"
     ? // ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      "https://dub.co"
+      "https://letsfind.my"
     : "http://home.localhost:8888";
 
 export const APP_HOSTNAMES = new Set([
-  "app.dub.co",
-  "preview.dub.co",
+  "app.letsfind.my",
+  "preview.letsfind.my",
   "localhost:8888",
   "localhost",
 ]);
 
 export const APP_DOMAIN =
   process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
-    ? "https://app.dub.co"
+    ? "https://app.letsfind.my"
     : process.env.NEXT_PUBLIC_VERCEL_ENV === "preview"
-    ? // ? "https://preview.dub.co"
-      "https://app.dub.co"
+    ? // ? "https://preview.letsfind.my"
+      "https://app.letsfind.my"
     : "http://localhost:8888";
 
 export const APP_DOMAIN_WITH_NGROK =
   process.env.NEXT_PUBLIC_VERCEL_ENV === "production"
-    ? "https://app.dub.co"
+    ? "https://app.letsfind.my"
     : process.env.NEXT_PUBLIC_VERCEL_ENV === "preview"
-    ? "https://preview.dub.co"
+    ? "https://preview.letsfind.my"
     : process.env.NGROK_URL;
 
-export const API_HOSTNAMES = new Set(["api.dub.co", "api.localhost:8888"]);
+export const API_HOSTNAMES = new Set(["api.letsfind.my", "api.localhost:8888"]);
 
 export const ADMIN_HOSTNAMES = new Set([
-  "admin.dub.co",
+  "admin.letsfind.my",
   "admin.localhost:8888",
 ]);
 
 export const DEFAULT_REDIRECTS = {
-  home: "https://dub.co",
-  dub: "https://dub.co",
-  signin: "https://app.dub.co/login",
-  login: "https://app.dub.co/login",
-  register: "https://app.dub.co/register",
-  signup: "https://app.dub.co/register",
-  app: "https://app.dub.co",
-  dashboard: "https://app.dub.co",
-  links: "https://app.dub.co/links",
-  settings: "https://app.dub.co/settings",
-  welcome: "https://app.dub.co/welcome",
+  home: "https://letsfind.my",
+  dub: "https://letsfind.my",
+  signin: "https://app.letsfind.my/login",
+  login: "https://app.letsfind.my/login",
+  register: "https://app.letsfind.my/register",
+  signup: "https://app.letsfind.my/register",
+  app: "https://app.letsfind.my",
+  dashboard: "https://app.letsfind.my",
+  links: "https://app.letsfind.my/links",
+  settings: "https://app.letsfind.my/settings",
+  welcome: "https://app.letsfind.my/welcome",
   discord: "https://twitter.com/dubdotco", // placeholder for now
-  tags: "https://dub.co/help/how-to-use-tags",
+  tags: "https://letsfind.my/help/how-to-use-tags",
 };
 
 export const DUB_HEADERS = {
   headers: {
-    "x-powered-by": "Dub.co - Link management for modern marketing teams",
+    "x-powered-by": "letsfind.my - Link management for modern marketing teams",
   },
 };
 

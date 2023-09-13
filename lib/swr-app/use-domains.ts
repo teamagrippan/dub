@@ -22,10 +22,10 @@ export default function useDomains({ domain }: { domain?: string } = {}) {
       ? data
       : ([
           {
-            slug: "dub.sh",
+            slug: "letsfind.my",
             verified: true,
             primary: true,
-            target: "https://dub.co",
+            target: "https://letsfind.my",
             type: "redirect",
           },
         ] as DomainProps[]);

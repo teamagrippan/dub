@@ -260,7 +260,7 @@ function AdvancedSettings({
                   thumbTranslate="translate-x-6"
                 />
                 <p className="text-sm text-gray-600">
-                  Show {!slug || (!logo && "Dub.co")} Logo
+                  Show {!slug || (!logo && "letsfind.my")} Logo
                 </p>
               </div>
             ) : (
@@ -293,7 +293,7 @@ function AdvancedSettings({
                     thumbTranslate="translate-x-6"
                     disabled={true}
                   />
-                  <p className="text-sm text-gray-600">Show Dub.co Logo</p>
+                  <p className="text-sm text-gray-600">Show letsfind.my Logo</p>
                 </div>
               </Tooltip>
             )}
@@ -356,7 +356,7 @@ function QrDropdown({ download, qrData, showLogo, logo }) {
                     ...(showLogo && {
                       imageSettings: {
                         ...qrData.imageSettings,
-                        src: logo || "https://dub.co/_static/logo.svg",
+                        src: logo || "https://letsfind.my/_static/logo.svg",
                       },
                     }),
                   }),

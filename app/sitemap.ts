@@ -14,11 +14,11 @@ import { BLOG_CATEGORIES, HELP_CATEGORIES } from "#/lib/constants/content";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const headersList = headers();
   let domain = headersList.get("host") as string;
-  if (isHomeHostname(domain)) domain = "dub.co";
+  if (isHomeHostname(domain)) domain = "letsfind.my";
 
   const links = await prisma.link.findMany({
     where: {
-      domain: domain === "dub.co" ? "dub.sh" : domain,
+      domain: domain === "letsfind.my" ? "letsfind.my" : domain,
       publicStats: true,
     },
     select: {
@@ -36,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `https://${domain}`,
       lastModified: new Date(),
     },
-    ...(domain === "dub.co"
+    ...(domain === "letsfind.my"
       ? [
           {
             url: `https://${domain}/pricing`,

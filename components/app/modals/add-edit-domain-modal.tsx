@@ -70,7 +70,7 @@ function AddEditDomainModal({
   const [deleting, setDeleting] = useState(false);
 
   const saveDisabled = useMemo(() => {
-    /* 
+    /*
       Disable save if:
       - modal is not open
       - saving is in progress
@@ -219,7 +219,7 @@ function AddEditDomainModal({
                     ? "border-red-300 pr-10 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500"
                     : "border-gray-300 text-gray-900 placeholder-gray-300 focus:border-gray-500 focus:ring-gray-500"
                 } block w-full rounded-md focus:outline-none sm:text-sm`}
-                placeholder="dub.sh"
+                placeholder="letsfind.my"
                 value={domain}
                 onChange={(e) => {
                   setDomainError(null);
@@ -244,7 +244,7 @@ function AddEditDomainModal({
                 Domain is already in use.{" "}
                 <a
                   className="underline"
-                  href="mailto:support@dub.co?subject=My Domain Is Already In Use"
+                  href="mailto:support@letsfind.my?subject=My Domain Is Already In Use"
                 >
                   Contact us
                 </a>{" "}

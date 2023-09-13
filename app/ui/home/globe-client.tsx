@@ -134,11 +134,11 @@ const GlobeAnimation = ({ markers }: { markers: MarkerProps[] }) => {
               This map shows the locations of the last 50 clicks on{" "}
               <a
                 className="font-semibold text-blue-800"
-                href="https://dub.sh/github"
+                href="https://letsfind.my/github"
                 target="_blank"
                 rel="noreferrer"
               >
-                dub.sh/github
+                letsfind.my/github
               </a>
               .
             </p>

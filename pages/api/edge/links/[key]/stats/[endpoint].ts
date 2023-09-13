@@ -16,9 +16,9 @@ export default async function handler(req: NextRequest) {
     const interval = req.nextUrl.searchParams.get("interval");
     const endpoint = req.nextUrl.searchParams.get("endpoint") as string;
     let domain = req.nextUrl.hostname;
-    if (isHomeHostname(domain)) domain = "dub.sh";
+    if (isHomeHostname(domain)) domain = "letsfind.my";
 
-    if (process.env.NODE_ENV !== "development" && domain === "dub.sh") {
+    if (process.env.NODE_ENV !== "development" && domain === "letsfind.my") {
       if (
         key === "github" &&
         (await isBlacklistedReferrer(req.headers.get("referer")))
@@ -37,13 +37,13 @@ export default async function handler(req: NextRequest) {
     }
 
     let data;
-    // if the link is NOT dub.sh/github (demo link)
-    if (!(domain === "dub.sh" && key === "github")) {
+    // if the link is NOT letsfind.my/github (demo link)
+    if (!(domain === "letsfind.my" && key === "github")) {
       data = await getLinkViaEdge(domain, key);
       // if the link is explicitly private (publicStats === false)
-      // or if the link doesn't exist in database (data === undefined) and is not a dub.sh link
-      // (we need to exclude dub.sh public demo links here)
-      if (data?.publicStats === 0 || (domain !== "dub.sh" && !data)) {
+      // or if the link doesn't exist in database (data === undefined) and is not a letsfind.my link
+      // (we need to exclude letsfind.my public demo links here)
+      if (data?.publicStats === 0 || (domain !== "letsfind.my" && !data)) {
         return new Response(`Stats for this link are not public`, {
           status: 403,
         });

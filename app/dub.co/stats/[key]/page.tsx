@@ -13,12 +13,12 @@ export async function generateMetadata({
   params: { key: string };
 }) {
   if (params.key !== "github") {
-    const data = await getLinkViaEdge("dub.sh", params.key);
+    const data = await getLinkViaEdge("letsfind.my", params.key);
 
     // if the link doesn't exist in MySQL DB
     if (!data) {
       // check if it's an ephemeral demo link in Redis
-      const ephemeralLink = await redis.get(`dub.sh:${params.key}`);
+      const ephemeralLink = await redis.get(`letsfind.my:${params.key}`);
       if (!ephemeralLink) {
         return;
       }
@@ -29,16 +29,16 @@ export async function generateMetadata({
   }
 
   return constructMetadata({
-    title: `Stats for dub.sh/${params.key} – Dub`,
+    title: `Stats for letsfind.my/${params.key} – Dub`,
     description: `Dub is an open-source link management tool for modern marketing teams to create, share, and track short links.`,
-    image: `https://dub.co/api/og/stats?domain=dub.sh&key=${params.key}`,
+    image: `https://letsfind.my/api/og/stats?domain=letsfind.my&key=${params.key}`,
   });
 }
 
 export async function generateStaticParams() {
   return [
     {
-      domain: "dub.sh",
+      domain: "letsfind.my",
       key: "github",
     },
   ];
@@ -50,9 +50,9 @@ export default async function StatsPage({
   params: { key: string };
 }) {
   if (params.key !== "github") {
-    const data = await getLinkViaEdge("dub.sh", params.key);
+    const data = await getLinkViaEdge("letsfind.my", params.key);
     if (!data) {
-      const ephemeralLink = await redis.get(`dub.sh:${params.key}`);
+      const ephemeralLink = await redis.get(`letsfind.my:${params.key}`);
       if (!ephemeralLink) {
         notFound();
       }
@@ -64,7 +64,7 @@ export default async function StatsPage({
   return (
     <div className="bg-gray-50">
       <Suspense fallback={<div className="h-screen w-full bg-gray-50" />}>
-        <Stats staticDomain="dub.sh" />
+        <Stats staticDomain="letsfind.my" />
       </Suspense>
     </div>
   );

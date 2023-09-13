@@ -30,7 +30,7 @@ export default function Stats({ staticDomain }: { staticDomain?: string }) {
   const {
     slug,
     domain: domainSlug,
-    key = "_root", // if key is undefined, it's the root domain stats page (e.g. app.dub.co/steven/stey.me)
+    key = "_root", // if key is undefined, it's the root domain stats page (e.g. app.letsfind.my/steven/stey.me)
     interval = "24h",
   } = router.query as {
     slug?: string;
@@ -49,10 +49,10 @@ export default function Stats({ staticDomain }: { staticDomain?: string }) {
       : "";
 
   const { basePath, domain, endpoint } = useMemo(() => {
-    // Project link page, e.g. app.dub.co/dub/dub.sh/github
+    // Project link page, e.g. app.letsfind.my/dub/letsfind.my/github
     if (slug && domainSlug && key) {
       return {
-        // for _root domain stats page (e.g. app.dub.co/steven/stey.me), we don't want to show the key in the URL
+        // for _root domain stats page (e.g. app.letsfind.my/steven/stey.me), we don't want to show the key in the URL
         basePath: `/${slug}/${domainSlug}${
           key === "_root" ? "" : `/${encodeURIComponent(key)}`
         }`,
@@ -60,16 +60,16 @@ export default function Stats({ staticDomain }: { staticDomain?: string }) {
         endpoint: `/api/links/${encodeURIComponent(key)}/stats`,
       };
 
-      // Generic Dub.sh link page, e.g. app.dub.co/links/steven
+      // Generic letsfind.my link page, e.g. app.letsfind.my/links/steven
     } else if (key && router.asPath.startsWith("/links")) {
       return {
         basePath: `/links/${encodeURIComponent(key)}`,
-        domain: "dub.sh",
+        domain: "letsfind.my",
         endpoint: `/api/links/${encodeURIComponent(key)}/stats`,
       };
     }
 
-    // Public stats page, e.g. dub.co/stats/github, stey.me/stats/weathergpt
+    // Public stats page, e.g. letsfind.my/stats/github, stey.me/stats/weathergpt
     return {
       basePath: `/stats/${encodeURIComponent(key)}`,
       domain: staticDomain,
@@ -81,9 +81,9 @@ export default function Stats({ staticDomain }: { staticDomain?: string }) {
     <StatsContext.Provider
       value={{
         basePath, // basePath for the page (e.g. /stats/[key], /links/[key], /[slug]/[domain]/[key])
-        domain: domain!, // domain for the link (e.g. dub.sh, stey.me, etc.)
+        domain: domain!, // domain for the link (e.g. letsfind.my, stey.me, etc.)
         endpoint, // endpoint for the API (e.g. /api/edge/links/[key]/stats)
-        queryString, // query string for the API (e.g. ?interval=24h&domain=dub.sh, ?interval=24h, etc.)
+        queryString, // query string for the API (e.g. ?interval=24h&domain=letsfind.my, ?interval=24h, etc.)
         interval, // time interval (e.g. 24h, 7d, 30d, etc.)
         key, // link key (e.g. github, weathergpt, etc.)
       }}
